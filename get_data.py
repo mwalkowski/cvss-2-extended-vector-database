@@ -1,6 +1,4 @@
-import re
 import os
-import string
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "vmc.config.settings")
 
@@ -75,7 +73,7 @@ def cwe_parse(cwe_id):
 
 
 def get_value(value):
-    return if value else ''
+    return value if value else ''
 
 
 def summary(d_cwe, d_cve):
@@ -84,7 +82,6 @@ def summary(d_cwe, d_cve):
                      get_value(d_cwe.extended_description),
                      get_value(d_cve)])
     return text.translate(str.maketrans('', '', '\n\t\r')).replace('|', ' ')
-
 
 
 if __name__ ==  'main':

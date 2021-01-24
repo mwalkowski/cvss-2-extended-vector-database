@@ -4,13 +4,12 @@ import string
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
-from nltk.util import ngrams
 from nltk.corpus import stopwords
 
 #Settings
 TOP_WORD_COUNT = 50
 INPUT_FILE = os.path.join(os.getcwd(), 'input_data', 'cvss_2_3.csv')
-OUTPUT_FILE = os.path.join(os.getcwd(), 'output_data', F'data_word_{TOP_WORD_COUNT}')
+OUTPUT_FILE = os.path.join(os.getcwd(), 'output_data', F'data_word_{TOP_WORD_COUNT}.csv')
 
 INPUT_FILE_SEPARATOR = '|'
 
@@ -61,7 +60,6 @@ if __name__ == '__main__':
     print(F'Selecting top {TOP_WORD_COUNT} used words...')
     for key,val in freq.items():
         if len(top_words) < TOP_WORD_COUNT:
-            print(key, val)
             top_words.append(key)
 
     print('Words selected, sorting alphabetically..')
